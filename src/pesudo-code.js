@@ -1,10 +1,12 @@
 // For this problem we use the Nodejs and one DataBase MongoDB
 // Firstily we setup the Files.
 // npm init
-// for this we add have to import the libraries like express foe creating server, mongoose for connection with mongoDB,
+// for this we add have to import the libraries like express for creating server, 
+// mongoose for connection with mongoDB,
 // Then We Carete A file APP.Js,
-// Inside App.js we import express 
-// Let App = express();
+// App.js 
+    // Express = require("express")
+    //  App = express();
 // Then we create the server 
 //             App.listen((4000)=>{
 //                   Print “listening port 4000”
@@ -16,7 +18,11 @@
 // Create The model Schema for the BestPractices.
 // We create a one file BestPracticeSchema.js.
 // by using the  const InitializedSchema = mongoose.Schema ({}) we structured our code .
-// like eg.   BestPractice = mongoose.schema({
+// like 
+
+// BestPracticeModel.js
+//    Mongoose = require("mongoose")
+// eg.      BestPractice = mongoose.schema({
 //                                          artical:type:
 //                                          Object,title:{ type:String},
 //                                          practices:[String],
@@ -24,23 +30,29 @@
 //                                          discussion:{type:String}},
 //                                          citation:[Object]
 //                              })
+
 // we create the collection by using
                    // Collectioname = mongoose.model(collection name , InitializedSchema);
 // we export this  by using
                     // module.exports= Collectioname,
-// in Routerpage we import the collection 
-                    //  const collectionName = require( BestPracticeSchema.js(filename)). ,
-// now We post the data in that particuler collection , by using the Post metod .
-// we create a one 
+
+//  Router.js
+// Import The Model file  BestPracticeModel.js 
+//  collectionName = require( BestPracticeSchema.js(filename)). ,
+
+// now We post the data in that particuler collection , by using the Post method .
+// we create a one function
                 // async Function (req , res) 
 //                       try 
 //                         Data =  new collectionName(req.body);
 //                         CreatedData = await Data.save();
 //                         res.send(CreateData)
-//                    catch
+//                      catch
 //                         res.status(400).send(err.message)
 
-// now we add the some condition in this ,
+// we check this Post api-request by using postman.
+
+// now we add the one condition for unique data,
 //                       try 
 //                           first we find the data in that database ;
 //                           AllData = await collectionName.find({});
@@ -48,7 +60,7 @@
 //                                Data =  new collectionName();
 //                               CreatedData = await Data.save();
 //                                res.send(CreateData)
-//                        else
+//                        Else
 //                              Data =  new collectionName({req.body, citation:[{title:titlename , url:url}]});
 //                              CreatedData = await Data.save();
 //                              res.send(CreateData)       
@@ -56,23 +68,23 @@
 //                        res.status(400).send(err.message)
 
 
-// we find the unique citation ;
-//                       try 
+// we find the unique citation we update the citation array ;
+//                       Try 
 //                           first we find the data in that database ;
 //                           UniqData = await collectionName.find({});
 //                        If(AllData.length > 0)
-//                                 Unique = await UniqPractices.find({});
+//                                Unique = await UniqPractices.find({});
 //                                Id = unique[0]._id;
 //                              UpdateData = await collectionName.findByIdAndUpdate(Id , {$push:{citation:{title:title ,url:url}}} , {new:true})
-//                          else
+//                          Else
 //                              Data =  new collectionName(“”);
 //                              CreatedData = await Data.save();
 //                              res.send(CreateData)       
-//                    catch
+//                    Catch
 //                        res.status(400).send(err.message)
 
 // Now We Get the Data From DataBase;
-// We take a one 
+// We take a one function
     // Async Funcion ()
 //        Try
 //              const uniq = await PracticeCollection.find({});
@@ -81,6 +93,7 @@
 //       Catch
 //            res.status(400).send(err.message)
 
+// we check this Get api-request by using postman.
             
 
 
